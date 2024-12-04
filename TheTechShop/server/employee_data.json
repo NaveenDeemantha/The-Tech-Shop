@@ -1,0 +1,20 @@
+[
+    {
+        "emp_number": 1,
+        "full_name": "John Doe",
+        "email": "johndoe@example.com",
+        "position": "Software Developer"
+    },
+    {
+        "emp_number": 2,
+        "full_name": "Jane Smith",
+        "email": "janesmith@example.com",
+        "position": "UI\/UX Designer"
+    },
+    {
+        "emp_number": 4,
+        "full_name": "Naveen",
+        "email": "",
+        "position": "Software Developer"
+    }
+]

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Service</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tech Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Add New Service</h1>
+        <form id="serviceForm">
+            <div class="form-group">
+                <label for="serviceName">Service Name</label>
+                <input type="text" id="serviceName" class="form-control" placeholder="Enter service name" required>
+            </div>
+            <div class="form-group">
+                <label for="serviceFeature1">Feature 1</label>
+                <input type="text" id="serviceFeature1" class="form-control" placeholder="Enter feature 1" required>
+            </div>
+            <div class="form-group">
+                <label for="serviceFeature2">Feature 2</label>
+                <input type="text" id="serviceFeature2" class="form-control" placeholder="Enter feature 2" required>
+            </div>
+            <div class="form-group">
+                <label for="serviceFeature3">Feature 3</label>
+                <input type="text" id="serviceFeature3" class="form-control" placeholder="Enter feature 3" required>
+            </div>
+            <div class="form-group">
+                <label for="servicePrice">Price</label>
+                <input type="number" id="servicePrice" class="form-control" placeholder="Enter price" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Service</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Handle form submission
+            $('#serviceForm').on('submit', function (e) {
+                e.preventDefault();
+
+                // Get form data
+                var serviceData = {
+                    name: $('#serviceName').val(),
+                    feature1: $('#serviceFeature1').val(),
+                    feature2: $('#serviceFeature2').val(),
+                    feature3: $('#serviceFeature3').val(),
+                    price: $('#servicePrice').val()
+                };
+
+                // Send data to addservices.php using AJAX
+                $.ajax({
+                    url: 'addservices.php',
+                    type: 'POST',
+                    data: serviceData,
+                    success: function(response) {
+                        alert('Service added successfully!');
+                        // Optionally, reset the form after successful submission
+                        $('#serviceForm')[0].reset();
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error:", error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

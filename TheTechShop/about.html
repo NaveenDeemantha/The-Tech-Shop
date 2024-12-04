@@ -3,43 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - My Website</title>
+    <title>About Us - IT Services</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="\styles\styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #0056b3;
+        }
+
+        p, li {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            background-color: #ffffcc;
+            color: #333;
+        }
+
+        .fade-section {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            font-size: 0.9rem;
+        }
+
+        .fade-section p {
+            margin: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #007bff; /* Blue background for navbar */
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #fff !important; /* White text for navbar items */
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #f1f1f1 !important; /* Light color on hover */
+        }
+    </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Tech Shop</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Tech Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>About Us</h1>
+        <p>Innovating Your Business with Technology</p>
+    </header>
+
+    <section id="about-section">
+        <h2>Who We Are</h2>
+        <p class="description">
+            At our core, we are a passionate team of IT professionals dedicated to providing cutting-edge solutions. From startups to enterprises, we empower businesses to excel in the digital landscape.
+        </p>
+        <button id="toggle-highlight">Highlight Text</button>
+    </section>
+
+    <section id="services-section">
+        <h2>Our Services</h2>
+        <ul id="services-list">
+            <li>Web Development</li>
+            <li>Cloud Computing</li>
+            <li>Cybersecurity</li>
         </ul>
-    </div>
-</nav>
+        <input type="text" id="new-service" placeholder="Enter a new service">
+        <button id="add-service">Add Service</button>
+    </section>
 
-<div class="container my-4">
-    <h1>About Us</h1>
-    <br>
-    <p>Greetings from TechWave Solutions, where innovation and technology coexist. 
-      Our committed team provides expert website building, upkeep, and visual content production services.
-      Our goal is to assist companies in creating distinctive, user-friendly websites that represent their distinct brand identities in order to have a strong online presence.
-      Every element, from elegant appearances to flawless operation, is designed to improve your online experience.
-      Additionally, we are experts in creating visually striking material that makes your company stand out.
-      We are here to give you the digital tools you need to be successful, whether your business is new or well-established.
-     At TechWave, we use creativity, knowledge, and a dedication to excellence to realize your vision.
-    </p>
-    <br>
-</div>
+    <section>
+        <h2>Why Choose Us?</h2>
+        <p id="reason">We provide top-notch IT services with exceptional support and innovation.</p>
+        <button id="change-color">Change Background Color</button>
+        <button id="toggle-fade">Toggle Details</button>
+        <div class="fade-section">
+            <p>Our expertise guarantees your business's success in the digital age.</p>
+        </div>
+    </section>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer>
+        © 2024 IT Services | All Rights Reserved
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            // DOM Traversal Example
+            $('#toggle-highlight').click(function () {
+                $('#about-section p').toggleClass('highlight');
+            });
+
+            // DOM Modification Example
+            $('#add-service').click(function () {
+                const newService = $('#new-service').val();
+                if (newService.trim() !== '') {
+                    $('#services-list').append(`<li>${newService}</li>`);
+                    $('#new-service').val('');
+                } else {
+                    alert('Please enter a valid service.');
+                }
+            });
+
+            // DOM Attribute Modification Example
+            $('#new-service').focus(function () {
+                $(this).attr('placeholder', 'Type a service name here...');
+            });
+
+            $('#new-service').blur(function () {
+                $(this).attr('placeholder', 'Enter a new service');
+            });
+
+            // CSS Manipulation Example
+            $('#change-color').click(function () {
+                $('body').css('background-color', '#e9f7ff');
+            });
+
+            // JavaScript Effects Example
+            $('#toggle-fade').click(function () {
+                $('.fade-section').fadeToggle(500);
+            });
+
+            // HTML Events Example
+            $('#services-list').on('click', 'li', function () {
+                alert(`You selected: ${$(this).text()}`);
+            });
+        });
+    </script>
 </body>
 </html>

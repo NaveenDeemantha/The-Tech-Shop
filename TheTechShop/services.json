@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Web Development",
+        "feature1": "Custom Website Development",
+        "feature2": "Responsive Design",
+        "feature3": "E-commerce Solutions",
+        "price": 1000
+    },
+    {
+        "id": 2,
+        "name": "App Development",
+        "feature1": "iOS & Android Apps",
+        "feature2": "Cross-platform Development",
+        "feature3": "App Maintenance",
+        "price": 1500
+    },
+    {
+        "id": 3,
+        "name": "IT Support",
+        "feature1": "24\/7 Support",
+        "feature2": "Hardware Installation",
+        "feature3": "Network Security",
+        "price": 500
+    },
+    {
+        "id": 4,
+        "name": "Web Development",
+        "feature1": "Custom Website Development",
+        "feature2": "Responsive Design",
+        "feature3": "E-commerce Solutions",
+        "price": 1000
+    },
+    {
+        "id": 5,
+        "name": "App Development",
+        "feature1": "iOS & Android Apps",
+        "feature2": "Cross-platform Development",
+        "feature3": "App Maintenance",
+        "price": 1500
+    },
+    {
+        "id": "674cba3a82ee8",
+        "name": "PHP Programming",
+        "feature1": "All basics ",
+        "feature2": "Programming startup",
+        "feature3": "Full skill to develop an own website ",
+        "price": "345"
+    },
+    {
+        "id": "674d8069a0399",
+        "name": "edaae",
+        "feature1": "asdasd",
+        "feature2": "adasds",
+        "feature3": "asdasd",
+        "price": "1515"
+    }
+]

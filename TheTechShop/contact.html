@@ -1,50 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - My Website</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="\styles\styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Optional custom styles -->
 </head>
+
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Tech Shop</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tech Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <!-- Show Form Button -->
+        <div class="d-flex justify-content-center">
+            <button id="showFormButton" class="btn btn-info mx-2">Show Contact Form</button>
+            <button id="changePlaceholders" class="btn btn-secondary mx-2" style="display: none;">Change Placeholders</button>
+        </div>
+
+        <!-- Contact Form -->
+        <div id="contactFormContainer" style="display: none; text-align: center;">
+            <h1>Contact Us</h1>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Your message"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="extraField">Extra Field</label>
+                    <input type="text" class="form-control" id="extraField" placeholder="Optional extra information">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
-</nav>
 
-<div class="container my-4">
-    <h1>Contact Us</h1>
-    <form>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your name">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-        </div>
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea class="form-control" id="message" rows="3" placeholder="Your message"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+    <!-- Success Message -->
+    <div id="successMessage" style="display: none;"></div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom jQuery Script -->
+    <script>
+        $(document).ready(function () {
+
+            // 1. DOM Traversal: Dynamically change form field labels
+            $('input, textarea').focus(function () {
+                const label = $(this).prev('label');
+                label.css('color', '#28a745'); // Change label color on focus
+            }).blur(function () {
+                const label = $(this).prev('label');
+                label.css('color', ''); // Reset label color when blur
+            });
+
+            // 2. DOM Modification: Show contact form
+            $('#showFormButton').click(function () {
+                $('#contactFormContainer').slideDown(); // Slide down the form
+                $(this).hide(); // Hide the button
+                $('#changePlaceholders').show(); // Show the 'Change Placeholders' button
+            });
+
+            // 3. DOM Attribute Modification: Change placeholders in form fields
+            $('#changePlaceholders').click(function () {
+                $('#name').attr('placeholder', 'Your Full Name');
+                $('#email').attr('placeholder', 'Your Best Email');
+                $('#message').attr('placeholder', 'Type your detailed message here...');
+                $('#extraField').attr('placeholder', 'Any additional info?');
+            });
+
+            // 4. CSS Manipulation: Change border color on focus
+            $('input, textarea').focus(function () {
+                $(this).css('border-color', '#007BFF');
+            }).blur(function () {
+                $(this).css('border-color', '');
+            });
+
+            // 5. JavaScript Effects: Show confirmation message after form submission
+            $('form').submit(function (e) {
+                e.preventDefault(); // Prevent the default form submission
+                $('<div class="alert alert-success mt-3">Thank you for contacting us!</div>')
+                    .hide()
+                    .appendTo('.container')
+                    .fadeIn(1000)
+                    .delay(2000)
+                    .fadeOut(1000);
+            });
+
+            // 6. HTML Events: Change button text on hover
+            $('button[type="submit"]').hover(
+                function () {
+                    $(this).text('Ready to Submit!');
+                },
+                function () {
+                    $(this).text('Submit');
+                }
+            );
+
+        });
+    </script>
 </body>
+
 </html>
